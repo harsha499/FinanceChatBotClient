@@ -31,12 +31,12 @@ function App() {
 
     try {
       const res = await axios.post(
-        "https://financechatbot-z1ct.onrender.com:10000/api/chat",
+        "https://financechatbot-z1ct.onrender.com/api/chat",
         {
           message: input,
         },
         {
-          timeout: 50000, // Timeout in milliseconds (5 seconds)
+          timeout: 5000, // Timeout in milliseconds (5 seconds)
         }
       );
       const botMessage = { sender: "bot", text: res.data.response };
@@ -44,7 +44,7 @@ function App() {
     } catch (err) {
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: "Error: Failed to get response" },
+        { sender: "bot", text: "Sorry! there is some technical issue, Please try again" },
       ]);
     } finally {
       setLoading(false);
