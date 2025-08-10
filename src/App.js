@@ -31,7 +31,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/chat",
+        "https://financechatbot-z1ct.onrender.com:10000/api/chat",
         {
           message: input,
         },
