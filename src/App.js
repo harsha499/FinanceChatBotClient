@@ -23,6 +23,7 @@ function App() {
   const clearMessage = () => {
     localStorage.setItem("chatMessages", JSON.stringify([]));
     setMessages((prev) => []);
+    setSelectedFile(null);
   };
 
   const handleFileSelect = (event) => {
