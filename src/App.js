@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [messages, setMessages] = useState(() => {
@@ -17,11 +18,20 @@ function App() {
   };
 
   useEffect(() => {
+    const sessionId = localStorage.getItem("sessionId");
+    if (!sessionId) {
+      const sesisonId = uuidv4();
+      localStorage.setItem("sessionId", sesisonId);
+    }
+  }, []);
+  useEffect(() => {
     localStorage.setItem("chatMessages", JSON.stringify(messages));
     scrollToBottom();
   }, [messages]);
   const clearMessage = () => {
     localStorage.setItem("chatMessages", JSON.stringify([]));
+    const sesisonId = uuidv4();
+    localStorage.setItem("sessionId", sesisonId);
     setMessages((prev) => []);
     setSelectedFile(null);
   };
@@ -67,18 +77,16 @@ function App() {
     try {
       const formData = new FormData();
       formData.append("message", input);
+      formData.append("uuid", localStorage.getItem("sessionId"));
 
       if (selectedFile) {
         formData.append("pdf", selectedFile);
       }
 
-      const response = await fetch(
-        "https://financechatbot-z1ct.onrender.com/api/chat",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("http://localhost:3001/api/chat", {
+        method: "POST",
+        body: formData,
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

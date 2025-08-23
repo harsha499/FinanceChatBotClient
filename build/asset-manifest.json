@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6de25a5c.css",
+    "main.js": "/static/js/main.52465343.js",
+    "static/js/453.a3c1d153.chunk.js": "/static/js/453.a3c1d153.chunk.js",
+    "static/media/loan_1.png": "/static/media/loan_1.c32432b449332c4a16cf.png",
+    "static/media/loan.png": "/static/media/loan.6f6b930f1d16c5e22fb3.png",
+    "index.html": "/index.html",
+    "main.6de25a5c.css.map": "/static/css/main.6de25a5c.css.map",
+    "main.52465343.js.map": "/static/js/main.52465343.js.map",
+    "453.a3c1d153.chunk.js.map": "/static/js/453.a3c1d153.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6de25a5c.css",
+    "static/js/main.52465343.js"
+  ]
+}
