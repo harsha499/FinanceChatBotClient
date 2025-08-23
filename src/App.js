@@ -83,7 +83,7 @@ function App() {
         formData.append("pdf", selectedFile);
       }
 
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const response = await fetch("https://financechatbot-z1ct.onrender.com/api/chat", {
         method: "POST",
         body: formData,
       });
